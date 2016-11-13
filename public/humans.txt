@@ -1,0 +1,17 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    <name> Jonathan Cervantes <role> Programer <twitter>
+    <name> Ricardo Máximo <role> Developer <twitter>
+    <name> Noé Sanches <role> Programer <twitter>
+
+# THANKS
+
+    <name> My mom
+
+# TECHNOLOGY COLOPHON
+
+    CSS3, HTML5, Laravel
+    Apache Server Configs, jQuery, Modernizr, Normalize.css

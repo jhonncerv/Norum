@@ -1,0 +1,21 @@
+{
+  "name": "freelance",
+  "version": "0.1.0",
+  "author": "Jonathan <jhonncerv@gmail.com>",
+  "private": true,
+  "scripts": {
+    "prod": "gulp --production",
+    "dev": "gulp watch"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "babelify": "^7.3.0",
+    "gulp": "^3.9.1"
+  },
+  "dependencies": {
+    "bootstrap-sass": "^3.3.0",
+    "laravel-elixir": "^5.0.0"
+  }
+}
