@@ -14,5 +14,5 @@ elixir(function(mix) {
     mix.sass('app.scss')
         .browserify('app.js')
         .version(['css/app.css', 'js/app.js'])
-    .browserSync({ proxy: 'homestead.app'});
+        .browserSync({ proxy: '192.168.10.10'});
 });

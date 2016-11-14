@@ -26,19 +26,19 @@ Haciendo uso de cualquier framework, microframework o bibliotecas de terceros, d
 
 ## Instalación
 
-* Clonar el proyecto de Github
+Clonar el proyecto de Github
 
 ```
 git clone https://github.com/jhonncerv/Norum.git
 ```
 
-* Instalar todos los componentes de terceros con composer 
+Instalar todos los componentes de terceros con composer 
 
 ```
 composer update
 ```
 
-* Generar los archivos necesarios para crear la maquina virtual donde correra el proyecto
+Generar los archivos necesarios para crear la maquina virtual donde correra el proyecto
   
   * Para Mac/Linux
   
@@ -46,14 +46,13 @@ composer update
 php vendor/bin/homestead make
 ```
 
-*
   * Para Windows
 
 ```
 vendor\\bin\\homestead make
 ```
 
-* Se crea la maquina virtual con el código
+Se crea la maquina virtual con el código
 
 ```
 vagrant up

@@ -16,12 +16,12 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['actuales','project']]);
+        $this->middleware('auth', ['except' => ['nuevo']]);
     }
 
 
     /**
-     * Show the application dashboard.
+     * Enseña el dashboard una vez logeado
      *
      * @return \Illuminate\Http\Response
      */
@@ -31,7 +31,7 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Enseña todos los archivos subidos
      *
      * @return \Illuminate\Http\Response
      */
@@ -42,13 +42,31 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Crea un nuevo archivo y lo sube al servidor
      *
-     * @return \Illuminate\Http\Response
+     * @return array
      */
-    public function nuevo()
+    public function nuevo(Request $request)
     {
-        return view('nuevo');
+        $res = array([
+            'status' => 4,
+            'msg' => 'Error al guardar'
+        ]);
+        if (!file_exists('/gifs')) {
+            mkdir('/gifs', 0755, true);
+        }
+        if ($request->hasFile('archivo') && $request->has('titulo')){
+            if ($request->file('archivo')->isValid()){
+                //Archivo::create([]);
+
+                $res['status'] = 0;
+                $res['msg'] = 'Guardado con exito';
+            }
+        } else {
+            $res['status'] = 1;
+            $res['msg'] = 'Falta el archivo o el título';
+        }
+        return $res;
     }
 
     /**
