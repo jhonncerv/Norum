@@ -1,5 +1,12 @@
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+body {
+  font-family: 'Lato';
+}
 textarea {
   resize:horizontal;
+}
+
+img {
+  width: 100%;
 }

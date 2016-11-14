@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
-use App\Proyecto;
+use App\Archivo;
 use App\User;
 use Illuminate\Http\Request;
-use App\Http\Requests\guardaProyecto;
 
 class HomeController extends Controller
 {
@@ -20,16 +19,6 @@ class HomeController extends Controller
         $this->middleware('auth', ['except' => ['actuales','project']]);
     }
 
-    /**
-     * Show the current proyects.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function actuales()
-    {
-        $proyects = Proyecto::select('id', 'nombre')->active()->get();
-        return $proyects;
-    }
 
     /**
      * Show the application dashboard.
@@ -46,10 +35,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function proyectos()
+    public function archivos()
     {
-        $projs = Proyecto::all();
-        return view('proyectos')->withProyectos($projs);
+        $arc = Archivo::all();
+        return view('archivos')->withArchivos($arc);
     }
 
     /**
@@ -60,26 +49,6 @@ class HomeController extends Controller
     public function nuevo()
     {
         return view('nuevo');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function creaUnoNuevo(guardaProyecto $request)
-    {
-        Proyecto::create([
-            'nombre' => $request->titulo,
-            'problema' => $request->problema,
-            'solucion' => $request->solucion,
-            'link' => $request->link,
-            //'marca_link' => $request->marca_link,
-            //'marca_url' => $request->marca_url,
-            'marca_nombre' => $request->marca_nombre
-        ]);
-
-        return redirect('/home');
     }
 
     /**
@@ -98,10 +67,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function project($id)
+    public function archivo($id)
     {
         try {
-            $project = Proyecto::findOrFail($id);
+            $project = Archivo::findOrFail($id);
         } catch (ModelNotFoundException $ex) {
             $project = 'hackear es malo :(';
         }

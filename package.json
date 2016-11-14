@@ -1,5 +1,5 @@
 {
-  "name": "freelance",
+  "name": "Norum",
   "version": "0.1.0",
   "author": "Jonathan <jhonncerv@gmail.com>",
   "private": true,
@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "bootstrap-sass": "^3.3.0",
+    "jquery": "^3.1.1",
     "laravel-elixir": "^5.0.0"
   }
 }

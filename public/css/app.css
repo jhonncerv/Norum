@@ -1,4 +1,10 @@
+body {
+  font-family: 'Lato'; }
+
 textarea {
   resize: horizontal; }
+
+img {
+  width: 100%; }
 
 /*# sourceMappingURL=app.css.map */

@@ -12,7 +12,7 @@
 
             <!-- Branding Image -->
             <a class="navbar-brand" href="{{ url('/') }}">
-                Dashboard
+                Norum
             </a>
         </div>
 
@@ -21,8 +21,7 @@
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
                 <li><a href="{{ url('/home') }}">Home</a></li>
-                <li><a href="{{ url('/proyectos') }}">Proyectos</a></li>
-                <li><a href="{{ url('/nuevo') }}">Nuevo</a></li>
+                <li><a href="{{ url('/archivos') }}">Archivos</a></li>
                 <li><a href="{{ url('/usuarios') }}">Usuarios</a></li>
             </ul>
         @endif

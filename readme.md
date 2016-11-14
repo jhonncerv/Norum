@@ -56,8 +56,10 @@ vendor\\bin\\homestead make
 * Se crea la maquina virtual con el código
 
 ```
-vagrant up --provision
+vagrant up
 ```
+
+Listo el proyecto esta listo para usarse en la siguiente dirección: [Abrir Proyecto](https://192.168.10.10)
 
 
 #### Notas

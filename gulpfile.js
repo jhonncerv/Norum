@@ -10,10 +10,9 @@ var es2015 = require('babel-preset-es2015');
  | file for our application, as well as publishing vendor resources.
  |
  */
-
 elixir(function(mix) {
     mix.sass('app.scss')
         .browserify('app.js')
-        .version(['css/app.css', 'js/app.js']);
-    mix.browserSync({ proxy: 'homestead.app'});
+        .version(['css/app.css', 'js/app.js'])
+    .browserSync({ proxy: 'homestead.app'});
 });
