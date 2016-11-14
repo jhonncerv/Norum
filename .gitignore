@@ -3,9 +3,34 @@
 /public/storage
 Homestead.yaml
 Homestead.json
-.env
+.env.example
 .idea
 .vagrant
 composer.phar
 composer-setup.php
 composer.lock
+
+
+#ignore thumbnails created by windows
+Thumbs.db
+#Ignore files build by Visual Studio
+*.obj
+*.exe
+*.pdb
+*.user
+*.aps
+*.pch
+*.vspscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.cache
+*.ilk
+*.log
+*.dll
+*.lib
+*.sbr

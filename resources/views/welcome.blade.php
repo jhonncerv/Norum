@@ -8,7 +8,7 @@
                 <div class="panel-heading">De mientras</div>
 
                 <div class="panel-body">
-                    Tu código Paps
+                    Tu código Papaaaaa
                 </div>
             </div>
         </div>

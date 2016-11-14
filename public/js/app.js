@@ -6,6 +6,7 @@
  */
 (function ($) {
     $(document).ready(function () {
+        console.log("entro");
         $('.borrar').click(function (e) {
             e.preventDefault();
             $.post($(this).attr('href'), function (data) {
