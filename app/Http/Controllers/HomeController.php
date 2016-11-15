@@ -27,7 +27,7 @@ class HomeController extends Controller
     public function welcome()
     {
         $arc = Archivo::active()->get();
-        return view('welcome')->withActivos($arc);
+        return view('welcome')->withActivos($arc)->withBodyClass('home');
     }
 
     /**
@@ -48,7 +48,7 @@ class HomeController extends Controller
     public function archivos()
     {
         $arc = Archivo::all();
-        return view('archivos')->withArchivos($arc);
+        return view('archivos')->withArchivos($arc)->withBodyClass('dashboard');
     }
 
     /**
@@ -90,18 +90,18 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Show the application dashboard for users.
      *
      * @return \Illuminate\Http\Response
      */
     public function usuarios()
     {
         $usuarios = User::all();
-        return view('usuarios')->withUsuarios($usuarios);
+        return view('usuarios')->withUsuarios($usuarios)->withBodyClass('dashboard');
     }
 
     /**
-     * Show the application dashboard.
+     * Show the application dashboard for archives.
      *
      * @return \Illuminate\Http\Response
      */

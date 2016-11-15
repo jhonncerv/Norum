@@ -16,7 +16,7 @@
     <link href="{{ elixir('css/app.css') }}" rel="stylesheet">
 
 </head>
-<body id="app-layout">
+<body id="app-layout" class="{{ isset($body_class) ? $body_class : '' }}">
 
     @include('partials.menu')
     @yield('content')

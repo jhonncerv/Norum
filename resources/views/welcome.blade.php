@@ -54,14 +54,19 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="imagenes_gifs">
-                @foreach($activos as $activo)
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                    <img src="{{ $activo->link }}" alt="{{ $activo->nombre }}">
+            <div class="col-xs-12">
+                <div class="archives">
+                    @foreach($activos as $activo)
+                        <div class="archives__wrap--loading">
+                            <i class="fa fa-2x fa-circle-o-notch fa-spin"></i>
+                            <img src="{{ $activo->link }}" alt="{{ $activo->nombre }}" class="archives__img img-responsive">
+                            <a href="{{ $activo->link }}" class="archives__modal" target="_blank" data-titulo="{{ $activo->nombre }}"></a>
+                        </div>
+                    @endforeach
                 </div>
-                @endforeach
             </div>
         </div>
     </div>
     @include('partials.template')
+    @include('partials.modal')
 @endsection
