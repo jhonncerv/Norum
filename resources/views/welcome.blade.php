@@ -28,7 +28,7 @@
                                 <label for="archivo" class="col-md-4 control-label">Archivo</label>
 
                                 <div class="col-md-6">
-                                    <input id="archivo" type="file" class="form-control" name="archivo" value="{{ old('archivo') }}">
+                                    <input id="archivo" type="file" class="form-control" name="archivo" value="{{ old('archivo') }}" accept="image/gif" >
 
                                     @if ($errors->has('archivo'))
                                         <span class="help-block">
@@ -55,10 +55,13 @@
     <div class="container">
         <div class="row">
             <div class="imagenes_gifs">
-                <div class="col-xs-12 col-sm-6 ,">
-
+                @foreach($activos as $activo)
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <img src="{{ $activo->link }}" alt="{{ $activo->nombre }}">
                 </div>
+                @endforeach
             </div>
         </div>
     </div>
+    @include('partials.template')
 @endsection

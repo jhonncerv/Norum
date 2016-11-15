@@ -9,6 +9,9 @@ textarea {
 
 img {
   width: 100%;
+  &.thumb {
+    max-width: 60px;
+  }
 }
 
 input[type=file]:focus, input[type=checkbox]:focus, input[type=radio]:focus {

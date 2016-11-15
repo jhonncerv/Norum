@@ -16,9 +16,19 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['nuevo']]);
+        $this->middleware('auth', ['except' => ['nuevo', 'welcome']]);
     }
 
+    /**
+     * Enseña el dashboard una vez logeado
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function welcome()
+    {
+        $arc = Archivo::active()->get();
+        return view('welcome')->withActivos($arc);
+    }
 
     /**
      * Enseña el dashboard una vez logeado
@@ -59,18 +69,22 @@ class HomeController extends Controller
             if ($request->file('archivo')->isValid() && $request->archivo->extension() == 'gif'){
                 $nombre_gif = str_random(10) . '.gif';
                 $request->file('archivo')->move(public_path('gifs'), $nombre_gif );
-                //Archivo::create([]);
-
+                $nombre_gif = '/gifs/' . $nombre_gif;
+                Archivo::create([
+                    'nombre' => $request->titulo,
+                    'link' => $nombre_gif
+                ]);
                 $res['status'] = 0;
                 $res['msg'] = 'Guardado con exito';
-                $res['path'] = '/gifs/' . $nombre_gif;
+                $res['path'] = $nombre_gif;
+                $res['titulo'] = $request->titulo;
             } else {
                 $res['status'] = 2;
-                $res['msg'] = 'Formato de imagen invalido';
+                $res['error'] = 'Formato de imagen invalido';
             }
         } else {
             $res['status'] = 1;
-            $res['msg'] = 'Falta el archivo o el título';
+            $res['error'] = 'Falta el archivo o el título';
         }
         return $res;
     }

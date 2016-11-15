@@ -6,6 +6,8 @@ textarea {
 
 img {
   width: 100%; }
+  img.thumb {
+    max-width: 60px; }
 
 input[type=file]:focus, input[type=checkbox]:focus, input[type=radio]:focus {
   outline: thin dotted;

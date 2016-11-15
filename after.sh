@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 echo I am provisioning...
 cd norum
-php artisan migrate --seed
+php artisan migrate:refresh --seed
 echo DataBase seeded c:
