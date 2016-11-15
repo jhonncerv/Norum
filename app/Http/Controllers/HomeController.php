@@ -48,19 +48,25 @@ class HomeController extends Controller
      */
     public function nuevo(Request $request)
     {
-        $res = array([
+        $res = array(
             'status' => 4,
             'msg' => 'Error al guardar'
-        ]);
-        if (!file_exists('/gifs')) {
-            mkdir('/gifs', 0755, true);
+        );
+        if (!file_exists(public_path('gifs'))) {
+            mkdir(public_path('gifs'), 0755, true);
         }
         if ($request->hasFile('archivo') && $request->has('titulo')){
-            if ($request->file('archivo')->isValid()){
+            if ($request->file('archivo')->isValid() && $request->archivo->extension() == 'gif'){
+                $nombre_gif = str_random(10) . '.gif';
+                $request->file('archivo')->move(public_path('gifs'), $nombre_gif );
                 //Archivo::create([]);
 
                 $res['status'] = 0;
                 $res['msg'] = 'Guardado con exito';
+                $res['path'] = '/gifs/' . $nombre_gif;
+            } else {
+                $res['status'] = 2;
+                $res['msg'] = 'Formato de imagen invalido';
             }
         } else {
             $res['status'] = 1;

@@ -2,6 +2,8 @@
  * Created by jonathan on 21/07/16.
  */
 var jQuery = require('jquery');
+var imagesLoaded = require('imagesloaded');
+
 (function ($) {
     function validaForm($formulario) {
         var $res = $formulario;
@@ -12,6 +14,11 @@ var jQuery = require('jquery');
         return $res;
     }
     $(document).ready(function () {
+
+        imagesLoaded.makeJQueryPlugin( $ );
+
+        $('.imagenes_gifs').imagesLoaded( function() {});
+
         $('#subir-archivo').submit(function (e) {
             e.stopPropagation();
             e.preventDefault();
@@ -49,5 +56,6 @@ var jQuery = require('jquery');
                console.log(data);
             });
         });
+
     });
 })(jQuery);
