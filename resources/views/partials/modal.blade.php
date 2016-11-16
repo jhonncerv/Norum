@@ -7,7 +7,7 @@
                 <h4 class="modal-title" id="myModalLabel">titulo</h4>
             </div>
             <div class="modal-body">
-                <img src="/gifs/TD4m6t2Ka4.gif" alt="titulo">
+                <img src="" alt="titulo">
             </div>
         </div>
     </div>

@@ -42,8 +42,6 @@
 
 @section('scripts')
     <script>
-        $(document).ready(function () {
-            $.ajaxSetup({headers: {'X-CSRF-TOKEN': '{{ csrf_token() }}'}});
-        });
+        var ajax_token = {headers: {'X-CSRF-TOKEN': '{{ csrf_token() }}'}};
     </script>
 @endsection

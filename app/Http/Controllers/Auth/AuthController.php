@@ -28,7 +28,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/archivos';
 
     /**
      * Where to redirect users after logout.
@@ -50,8 +50,8 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware($this->guestMiddleware(), ['except' => ['logout', 'showRegistrationForm']]);
-        $this->middleware('auth', ['only' => 'showRegistrationForm']);
+        $this->middleware($this->guestMiddleware(), ['except' => ['logout', 'showRegistrationForm', 'register']]);
+        $this->middleware('auth', ['only' => ['showRegistrationForm', 'register']]);
     }
 
     /**

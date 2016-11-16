@@ -1,4 +1,4 @@
-// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
 body {
   font-family: 'Lato';
@@ -88,4 +88,8 @@ input[type=file]:focus, input[type=checkbox]:focus, input[type=radio]:focus {
   .fa-spin {
     font-size: 1.65em;
   }
+}
+
+.btn i {
+  margin: 0 10px 0 2px;
 }

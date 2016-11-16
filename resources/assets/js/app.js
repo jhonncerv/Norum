@@ -1,7 +1,9 @@
 /**
  * Created by jonathan on 21/07/16.
  */
-var jQuery = require('jquery');
+global.jQuery = require('jquery');
+require('bootstrap-sass/assets/javascripts/bootstrap/dropdown');
+
 (function ($) {
     /*
     Función que valida el formulario de subida de archivos
@@ -18,6 +20,13 @@ var jQuery = require('jquery');
     }
     function imagesProgress(instance, image) {
         image.img.parentNode.className = image.isLoaded ? 'archives__wrap' : 'archives__wrap--broken';
+    }
+    function activaModal(e) {
+        e.preventDefault();
+        $('body').addClass('modal-open');
+        $('.modal').show().find('.modal-body img').attr('src',$(this).attr('href'));
+        $('#myModalLabel').html($(this).data('titulo'));
+        setTimeout(function () { $('.modal, .modal-overlay').addClass('in'); },100);
     }
     var App = {
         // Código necesario para el funcionamiento del Home aka. Welcome
@@ -37,13 +46,8 @@ var jQuery = require('jquery');
                     if (!regex) $(this).val('');
                 });
 
-                $('.archives__modal').click(function (e) {
-                    e.preventDefault();
-                    $('body').addClass('modal-open');
-                    $('.modal').show().find('.modal-body img').attr('src',$(this).attr('href'));
-                    $('#myModalLabel').html($(this).data('titulo'));
-                    setTimeout(function () { $('.modal, .modal-overlay').addClass('in'); },100);
-                });
+                $('.archives__modal').click(activaModal);
+
                 $('.modal-overlay,.close').click(function () {
                     $('body').removeClass('modal-open');
                     $('.modal, .modal-overlay').removeClass('in');
@@ -70,7 +74,9 @@ var jQuery = require('jquery');
                             },
                             success: function(data, textStatus, jqXHR) {
                                 if(typeof data.error === 'undefined') {
-                                    $('.archives').append(template(data)).imagesLoaded().progress(imagesProgress);
+                                    var $datos = $(template(data));
+                                    $datos.find('.archives__modal').click(activaModal);
+                                    $('.archives').append($datos).imagesLoaded().progress(imagesProgress);
                                 }
                                 else {
                                     console.log('ERRORS: ' + data.error);
@@ -124,6 +130,7 @@ var jQuery = require('jquery');
             $.each(document.body.className.split(/\s+/), function(i, classnm) {
                 UTIL.fire(classnm);
             });
+
         }
     };
     // inicia js.
