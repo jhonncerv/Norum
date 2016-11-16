@@ -68,4 +68,8 @@ input[type=file]:focus, input[type=checkbox]:focus, input[type=radio]:focus {
     width: inherit;
     display: inline-block; }
 
+.editar .fa-spin,
+.borrar .fa-spin {
+  font-size: 1.65em; }
+
 /*# sourceMappingURL=app.css.map */

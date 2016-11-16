@@ -115,4 +115,52 @@ class HomeController extends Controller
         return $project;
     }
 
+    /**
+     * Service to activate or deactivate the archive
+     *
+     * @return array
+     */
+    public function editarArchivo($id) {
+
+        $res = array(
+            'status' => 4,
+            'msg' => 'Error al guardar'
+        );
+        try {
+            $prot = Archivo::findOrFail($id);
+            $prot->activo = !$prot->activo;
+            $prot->save();
+            $res['status'] = 1;
+            $res['activo'] = $prot->activo;
+            $res['msg'] = "Guardado con exito";
+        } catch (ModelNotFoundException $ex) {
+            $res['msg'] = 'hackear es malo :(';
+        }
+
+        return $res;
+    }
+
+    /**
+     * Service to activate or deactivate the archive
+     *
+     * @return array
+     */
+    public function borrarArchivo($id) {
+
+        $res = array(
+            'status' => 4,
+            'msg' => 'Error al guardar'
+        );
+        try {
+            $prot = Archivo::findOrFail($id);
+            unlink(public_path($prot->link));
+            $prot->delete();
+            $res['status'] = 1;
+            $res['msg'] = "Borrado con exito";
+        } catch (ModelNotFoundException $ex) {
+            $res['msg'] = 'hackear es malo :(';
+        }
+
+        return $res;
+    }
 }

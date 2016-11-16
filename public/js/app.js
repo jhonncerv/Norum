@@ -19084,14 +19084,16 @@ var jQuery = require('jquery');
         // Código necesario para el funcionamiento del dashboard
         'dashboard': {
             init: function init() {
-                $('.borrar').click(function (e) {
-                    var ajax_token = ajax_token || {};
+                $.ajaxSetup(ajax_token);
+                function llamadaAjax(e) {
                     e.preventDefault();
-                    $.ajaxSetup(ajax_token);
-                    $.post($(this).attr('href'), function (data) {
-                        console.log(data);
+                    var $this = $(this);
+                    $this.html('<i class="fa fa-btn fa-circle-o-notch fa-spin ' + ($this.hasClass('editar') ? ' text-info' : 'text-danger') + '"></i>');
+                    $.post($this.attr('href'), function (data) {
+                        if ($this.hasClass('editar')) $this.html('<i class="fa fa-2x fa-btn ' + (data.activo ? 'fa-check-circle-o' : 'fa-circle-o') + ' text-info"></i>');else $this.parents('tr').remove();
                     });
-                });
+                }
+                $('.borrar, .editar').click(llamadaAjax);
             }
         }
     };

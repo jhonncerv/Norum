@@ -7,8 +7,8 @@ Route::auth();
 Route::get('/home', 'HomeController@index');
 Route::post('/nuevo', 'HomeController@nuevo');
 Route::get('/archivos', 'HomeController@archivos');
-Route::post('/archivos/{id}/borrar', 'HomeController@borrarProject');
-Route::post('/archivos/{id}', 'HomeController@project');
+Route::post('/archivos/{id}/borrar', 'HomeController@borrarArchivo');
+Route::post('/archivos/{id}/editar', 'HomeController@editarArchivo');
 
 Route::get('/usuarios', 'HomeController@usuarios');
 Route::get('/usuarios/{id}', 'HomeController@editarUsuarios');

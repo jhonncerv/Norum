@@ -25,11 +25,11 @@
                                 <td>{{ $archivo->nombre }}</td>
                                 <td><img src="{{ $archivo->link }}" class="thumb" ></td>
                                 <td>
-                                    <a href="/proyectos/{{ $archivo->id }}" class="editar">
+                                    <a href="/archivos/{{ $archivo->id }}/editar" class="editar">
                                         <i class="fa fa-2x fa-btn {{ $archivo->activo ? 'fa-check-circle-o' : 'fa-circle-o' }}  text-info"></i>
                                     </a>
                                 </td>
-                                <td><a href="/proyectos/{{ $archivo->id }}/borrar/" class="borrar">
+                                <td><a href="/archivos/{{ $archivo->id }}/borrar/" class="borrar">
                                         <i class="fa fa-2x fa-btn fa-trash-o text-danger"></i></a></td>
                             </tr>
                         @endforeach

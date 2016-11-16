@@ -82,3 +82,10 @@ input[type=file]:focus, input[type=checkbox]:focus, input[type=radio]:focus {
     display: inline-block;
   }
 }
+
+.editar,
+.borrar {
+  .fa-spin {
+    font-size: 1.65em;
+  }
+}
