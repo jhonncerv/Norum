@@ -68,7 +68,7 @@ input[type=file]:focus, input[type=checkbox]:focus, input[type=radio]:focus {
 .modal {
   text-align: center;
   &-overlay{
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
