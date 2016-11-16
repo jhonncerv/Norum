@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use App\Archivo;
+use App\Opcion;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -37,7 +38,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $opc = Opcion::select('activo')->first();
+        return view('home')->withBodyClass('slickslider')->withOpc($opc);
     }
 
     /**
@@ -101,6 +103,31 @@ class HomeController extends Controller
     }
 
     /**
+     * Servicio para borrar al Usiario
+     *
+     * @param int $id
+     *
+     * @return array
+     */
+    public function borrarUsuarios($id) {
+
+        $res = array(
+            'status' => 4,
+            'msg' => 'Error al borrar el usuario'
+        );
+        try {
+            $prot = User::findOrFail($id);
+            $prot->delete();
+            $res['status'] = 1;
+            $res['msg'] = "Borrado con exito";
+        } catch (ModelNotFoundException $ex) {
+            $res['msg'] = 'hackear es malo :(';
+        }
+
+        return $res;
+    }
+
+    /**
      * Show the application dashboard for archives.
      *
      * @return \Illuminate\Http\Response
@@ -149,7 +176,7 @@ class HomeController extends Controller
 
         $res = array(
             'status' => 4,
-            'msg' => 'Error al guardar'
+            'msg' => 'Error al borrar'
         );
         try {
             $prot = Archivo::findOrFail($id);
@@ -157,6 +184,29 @@ class HomeController extends Controller
             $prot->delete();
             $res['status'] = 1;
             $res['msg'] = "Borrado con exito";
+        } catch (ModelNotFoundException $ex) {
+            $res['msg'] = 'hackear es malo :(';
+        }
+        return $res;
+    }
+
+    /**
+     * Service to switch from slider to blocks
+     *
+     * @return array
+     */
+    public function seleccion($num) {
+        $res = array(
+            'status' => 4,
+            'msg' => 'Error al borrar'
+        );
+        try {
+            $prot = Opcion::first();
+            $prot->activo = $num;
+            $prot->save();
+            $res['status'] = 1;
+            $res['activo'] = $prot->activo;
+            $res['msg'] = "Guardado con exito";
         } catch (ModelNotFoundException $ex) {
             $res['msg'] = 'hackear es malo :(';
         }

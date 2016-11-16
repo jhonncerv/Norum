@@ -1,5 +1,6 @@
 var elixir = require('laravel-elixir');
 var es2015 = require('babel-preset-es2015');
+require('laravel-elixir-imagemin');
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -11,7 +12,8 @@ var es2015 = require('babel-preset-es2015');
  |
  */
 elixir(function(mix) {
-    mix.sass('app.scss')
+    mix.imagemin()
+        .sass('app.scss')
         .browserify('app.js')
         .version(['css/app.css', 'js/app.js'])
         .browserSync({ proxy: '192.168.10.10'});

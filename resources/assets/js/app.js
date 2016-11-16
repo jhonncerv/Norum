@@ -36,6 +36,7 @@ require('bootstrap-sass/assets/javascripts/bootstrap/dropdown');
                 var Handlebars = require('handlebars');
                 var source   = $("#archivo-template").html();
                 var template = Handlebars.compile(source);
+                var slick = require('slick-carousel');
                 var ajax_flag = true;
                 imagesLoaded.makeJQueryPlugin( $ );
 
@@ -112,6 +113,21 @@ require('bootstrap-sass/assets/javascripts/bootstrap/dropdown');
                     });
                 }
                 $('.borrar, .editar').click(llamadaAjax);
+            }
+        },
+        //Código a ejecutarse cuando es un slider en vez de la cuadricula
+        'slickslider':{
+            init: function () {
+                $('.selector .btn').click(function () {
+                    if (!$(this).hasClass('active')){
+                        $('.btn-primary').removeClass('btn-primary').removeClass('active').addClass('btn-default');
+                        $(this).removeClass('btn-default').addClass('btn-primary active');
+                        $('.switch-opc').toggleClass('visible');
+                        $.post('/switch/' + $(this).data('seleccion'), function (data) {
+                            console.log('data');
+                        });
+                    }
+                });
             }
         }
     };

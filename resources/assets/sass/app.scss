@@ -93,3 +93,31 @@ input[type=file]:focus, input[type=checkbox]:focus, input[type=radio]:focus {
 .btn i {
   margin: 0 10px 0 2px;
 }
+
+.selector {
+  margin-top: 25px;
+}
+
+.switch {
+  &-panel{
+    display: block;
+    position: relative;
+    height: 500px;
+    margin-top: 50px;
+  }
+  &-opc {
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: 0.2s opacity ease-in-out 0.1s;
+  }
+  &-opc.visible {
+    opacity: 1;
+  }
+  &-img {
+    width: 100%;
+  }
+}

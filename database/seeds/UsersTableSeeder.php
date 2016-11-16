@@ -23,5 +23,10 @@ class UsersTableSeeder extends Seeder
         $usuario->email = 'norum@norum.com';
         $usuario->password = bcrypt('123456');
         $usuario->save();
+
+        $opcion = new App\Opcion;
+        $opcion->activo = 1;
+        $opcion->save();
+
     }
 }

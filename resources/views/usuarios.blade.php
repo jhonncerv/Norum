@@ -14,7 +14,7 @@
                                 <th>#</th>
                                 <th>Nombre</th>
                                 <th>Correo</th>
-                                <th>Editar</th>
+                                <!--<th>Editar</th>-->
                                 <th>Borrar</th>
                             </tr>
                             </thead>
@@ -24,10 +24,10 @@
                                     <th>{{ $usuario->id  }}</th>
                                     <td>{{ $usuario->name }}</td>
                                     <td>{{ $usuario->email }}</td>
-                                    <td><a href="/usuarios/{{ $usuario->id }}" class="editar">
-                                            <i class="fa fa-btn fa-edit text-info"></i></a></td>
+                                    <!--<td><a href="/usuarios/{{ $usuario->id }}" class="editar">
+                                            <i class="fa fa-2x fa-btn fa-edit text-info"></i></a></td>-->
                                     <td><a href="/usuarios/{{ $usuario->id }}/borrar/" class="borrar">
-                                            <i class="fa fa-btn fa-trash-o text-danger"></i></a></td>
+                                            <i class="fa fa-2x fa-btn fa-trash-o text-danger"></i></a></td>
                                 </tr>
                             @endforeach
                             </tbody>
