@@ -1,4 +1,6 @@
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "node_modules/slick-carousel/slick/slick.scss";
+@import "node_modules/slick-carousel/slick/slick-theme.scss";
 
 body {
   font-family: 'Lato';
@@ -69,6 +71,14 @@ textarea {
     height: 100%;
     position: relative;
     z-index: 2;
+  }
+  .slider &__wrap--loading,
+  .slider &__wrap {
+    display: none;
+  }
+  .slick-initialized &__wrap--loading,
+  .slick-initialized &__wrap {
+    display: block;
   }
 }
 

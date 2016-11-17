@@ -20,7 +20,8 @@ require('bootstrap-sass/assets/javascripts/bootstrap/collapse');
         return $res;
     }
     function imagesProgress(instance, image) {
-        image.img.parentNode.className = image.isLoaded ? 'archives__wrap' : 'archives__wrap--broken';
+        var $class = image.isLoaded ? 'archives__wrap' : 'archives__wrap--broken';
+        $(image.img.parentNode).removeClass('archives__wrap--loading').addClass($class);
     }
     function activaModal(e) {
         e.preventDefault();
@@ -42,7 +43,6 @@ require('bootstrap-sass/assets/javascripts/bootstrap/collapse');
                 imagesLoaded.makeJQueryPlugin( $ );
 
                 $('.archives').imagesLoaded().progress(imagesProgress);
-
                 $('#archivo').on('change', function () {
                     var regex = new RegExp("(.*?)\.(gif)$").test($(this).val().toLowerCase());
                     if (!regex) $(this).val('');
@@ -55,7 +55,13 @@ require('bootstrap-sass/assets/javascripts/bootstrap/collapse');
                     $('.modal, .modal-overlay').removeClass('in');
                     setTimeout(function () { $('.modal').hide().find('.modal-body img').attr('src',''); },100);
                 });
-
+                $('.slider').slick({
+                    infinite: false,
+                    slidesToShow: 4,
+                    slidesToScroll: 4,
+                    dots: true,
+                    speed: 300
+                });
                 $('#subir-archivo').submit(function (e) {
                     e.stopPropagation();
                     e.preventDefault();

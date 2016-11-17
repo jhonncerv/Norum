@@ -55,7 +55,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <div class="archives">
+                <div class="archives {{ $opc->activo == 2 ? 'slider': '' }}">
                     @foreach($activos as $activo)
                         <div class="archives__wrap--loading">
                             <i class="fa fa-2x fa-circle-o-notch fa-spin"></i>
