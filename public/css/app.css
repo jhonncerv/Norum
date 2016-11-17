@@ -5750,18 +5750,34 @@ textarea {
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-  left: 50%; }
+  left: 50%;
+  height: 100%; }
+  @media only screen and (min-width: 992px) {
+    .archives__img {
+      height: auto; } }
 
 .archives__wrap, .archives__wrap--loading {
-  width: 290px;
-  height: 290px;
+  width: calc(100% - 20px);
+  height: 340px;
   position: relative;
   background: black;
   float: left;
   margin: 0 20px 20px 0; }
+  @media only screen and (min-width: 768px) {
+    .archives__wrap, .archives__wrap--loading {
+      width: calc(50% - 10px);
+      height: 340px; } }
+  @media only screen and (min-width: 992px) {
+    .archives__wrap, .archives__wrap--loading {
+      width: 290px;
+      height: 290px; } }
   @media only screen and (min-width: 1200px) {
     .archives__wrap, .archives__wrap--loading {
       width: 265px; } }
+
+@media only screen and (max-width: 992px) and (min-width: 768px) {
+  .archives__wrap:nth-child(2n+2), .archives__wrap--loading:nth-child(2n+2) {
+    margin-right: 0; } }
 
 .archives__wrap--loading i {
   visibility: visible;

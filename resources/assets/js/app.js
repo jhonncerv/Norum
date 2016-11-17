@@ -3,6 +3,7 @@
  */
 global.jQuery = require('jquery');
 require('bootstrap-sass/assets/javascripts/bootstrap/dropdown');
+require('bootstrap-sass/assets/javascripts/bootstrap/collapse');
 
 (function ($) {
     /*
@@ -118,13 +119,16 @@ require('bootstrap-sass/assets/javascripts/bootstrap/dropdown');
         //Código a ejecutarse cuando es un slider en vez de la cuadricula
         'slickslider':{
             init: function () {
+                var flag = true;
+                $.ajaxSetup(ajax_token);
                 $('.selector .btn').click(function () {
-                    if (!$(this).hasClass('active')){
+                    if (!$(this).hasClass('active') && flag){
                         $('.btn-primary').removeClass('btn-primary').removeClass('active').addClass('btn-default');
                         $(this).removeClass('btn-default').addClass('btn-primary active');
                         $('.switch-opc').toggleClass('visible');
+                        flag = !flag;
                         $.post('/switch/' + $(this).data('seleccion'), function (data) {
-                            console.log('data');
+                            flag = !flag;
                         });
                     }
                 });

@@ -28,7 +28,8 @@ class HomeController extends Controller
     public function welcome()
     {
         $arc = Archivo::active()->get();
-        return view('welcome')->withActivos($arc)->withBodyClass('home');
+        $opc = Opcion::first();
+        return view('welcome')->withActivos($arc)->withBodyClass('home')->withOpc($opc);
     }
 
     /**

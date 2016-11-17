@@ -19,10 +19,10 @@
                     <div class="row">
                         <div class="col-md-10 col-md-offset-1">
                             <div class="switch-panel">
-                                <div class="switch-opc visible">
+                                <div class="switch-opc {{ $opc->activo == 1 ? 'visible' : '' }} ">
                                     <img src="/images/cuadricula.png" class="switch-img">
                                 </div>
-                                <div class="switch-opc">
+                                <div class="switch-opc {{ $opc->activo == 1 ? '' : 'visible' }} ">
                                     <img src="/images/slider.png" class="switch-img">
                                 </div>
                             </div>
