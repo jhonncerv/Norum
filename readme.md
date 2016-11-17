@@ -1,4 +1,4 @@
-# Exámen Norum
+# Examen Norum
 
 Se realizó una aplicación demo basada en laravel y NodeJS con todos los requerimientos listados a continuación.
 
