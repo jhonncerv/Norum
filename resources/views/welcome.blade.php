@@ -58,9 +58,16 @@
                 <div class="archives {{ $opc->activo == 2 ? 'slider': '' }}">
                     @foreach($activos as $activo)
                         <div class="archives__wrap--loading">
-                            <i class="fa fa-2x fa-circle-o-notch fa-spin"></i>
+                            <i class="fa fa-2x fa-circle-o-notch fa-spin archives__loader"></i>
                             <img src="{{ $activo->link }}" alt="{{ $activo->nombre }}" class="archives__img img-responsive">
-                            <a href="{{ $activo->link }}" class="archives__modal" target="_blank" data-titulo="{{ $activo->nombre }}"></a>
+                            <a href="{{ $activo->link }}" class="archives__modal" target="_blank" data-titulo="{{ $activo->nombre }}">
+                                <i class="fa fa-expand"></i>
+                            </a>
+                            <div class="archives__social">
+                                <a href="{{ $activo->link }}" target="_blank" class="social_fb">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                            </div>
                         </div>
                     @endforeach
                 </div>

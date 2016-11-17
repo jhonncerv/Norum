@@ -30,6 +30,12 @@ require('bootstrap-sass/assets/javascripts/bootstrap/collapse');
         $('#myModalLabel').html($(this).data('titulo'));
         setTimeout(function () { $('.modal, .modal-overlay').addClass('in'); },100);
     }
+    function window_size(winWidth, winHeight) {
+        var winTop = (screen.height / 2) - (winWidth / 2),
+            winLeft = (screen.width / 2) - (winHeight / 2);
+        return 'top=' + winTop + ',left=' + winLeft +
+            ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight;
+    }
     var App = {
         // Código necesario para el funcionamiento del Home aka. Welcome
         'home': {
@@ -41,15 +47,18 @@ require('bootstrap-sass/assets/javascripts/bootstrap/collapse');
                 var slick = require('slick-carousel');
                 var ajax_flag = true;
                 imagesLoaded.makeJQueryPlugin( $ );
-
                 $('.archives').imagesLoaded().progress(imagesProgress);
                 $('#archivo').on('change', function () {
                     var regex = new RegExp("(.*?)\.(gif)$").test($(this).val().toLowerCase());
                     if (!regex) $(this).val('');
                 });
-
                 $('.archives__modal').click(activaModal);
-
+                $('.social_fb').click(function (e) {
+                    e.preventDefault();
+                    var $url = 'https://www.facebook.com/dialog/share?app_id=1687604064789210&display=popup' +
+                        '&href=' + encodeURIComponent($(this).attr('href'));
+                    window.open($url, 'Compartir', window_size(520, 350));
+                });
                 $('.modal-overlay,.close').click(function () {
                     $('body').removeClass('modal-open');
                     $('.modal, .modal-overlay').removeClass('in');
@@ -60,7 +69,30 @@ require('bootstrap-sass/assets/javascripts/bootstrap/collapse');
                     slidesToShow: 4,
                     slidesToScroll: 4,
                     dots: true,
-                    speed: 300
+                    speed: 300,
+                    responsive: [
+                        {
+                            breakpoint: 1200,
+                            settings: {
+                                slidesToShow: 3,
+                                slidesToScroll: 3
+                            }
+                        },
+                        {
+                            breakpoint: 992,
+                            settings: {
+                                slidesToShow: 2,
+                                slidesToScroll: 2
+                            }
+                        },
+                        {
+                            breakpoint: 768,
+                            settings: {
+                                slidesToShow: 1,
+                                slidesToScroll: 1
+                            }
+                        }
+                    ]
                 });
                 $('#subir-archivo').submit(function (e) {
                     e.stopPropagation();

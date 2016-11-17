@@ -1,15 +1,17 @@
 # Exámen Norum
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+Se realizó una aplicación demo basada en laravel y NodeJS con todos los requerimientos listados a continuación.
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+Se crearon 2 usuarios por default:
+* User: Norum
+* Contraseña:123456
 
 ## Descripción del problema
 
 Haciendo uso de cualquier framework, microframework o bibliotecas de terceros, desarrolla en HTML+JS+PHP un sitio web que cumpla con todas las condiciones descritas a continuación:
 
-1. Crear una página que permita subir gifs animados y almacenarlos en el servidor.
-2. Crear una página que despliegue todos los gifs subidos en una cuadrícula.
+1. Crear una página que permite subir gifs animados y almacenarlos en el servidor.
+2. Crear una página que despliega todos los gifs subidos en una cuadrícula.
 3. Agregar un sistema de usuarios (registro/login).
 4. Crear una página para usuarios (autenticados) que permita marcar los gifs como “aceptados” o “rechazados”.
 5. Modificar la funcionalidad (2) para que únicamente despliegue los gifs marcados como “aceptados”.
@@ -19,10 +21,16 @@ Haciendo uso de cualquier framework, microframework o bibliotecas de terceros, d
 
 ## Requisitos 
 
-* Composer 
-* Virtual Box
-* Vagrant
+Para instalar y correr la aplicación se necesita tener instalados los siguientes programas:
 
+* [Composer](https://getcomposer.org/) 
+* [Virtual Box](https://www.virtualbox.org/)
+* [Vagrant](https://www.vagrantup.com/)
+
+Para ejecutarlo en modo de desarrollo se necesitan también
+
+* NodeJS
+* Gulp
 
 ## Instalación
 
@@ -38,7 +46,7 @@ Instalar todos los componentes de terceros con composer
 composer update
 ```
 
-Generar los archivos necesarios para crear la maquina virtual donde correra el proyecto
+Generar los archivos necesarios para crear la máquina virtual donde correrá el proyecto
   
   * Para Mac/Linux
   
@@ -52,7 +60,7 @@ php vendor/bin/homestead make
 vendor\\bin\\homestead make
 ```
 
-Se crea la maquina virtual con el código
+Se crea la máquina virtual con el código
 
 ```
 vagrant up
